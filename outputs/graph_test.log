@@ -1,0 +1,6 @@
+﻿
+FINAL:
+ {"name": "search_eda_kb", "arguments": {"query": "missing_values", "top_k": 3}}
+
+FINAL:
+ {"name": "create_eda_plan", "arguments": {"dataset_columns": ["age", "salary", "city", "join_date"], "goal": "find patterns and outliers"}}
