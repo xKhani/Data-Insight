@@ -1,0 +1,17 @@
+# Purpose of RAG Implementation
+The purpose of implementing Retrieval-Augmented Generation (RAG) in this project is to ground the autonomous data analysis agent in reliable and domain-specific Exploratory Data Analysis (EDA) knowledge. Although large language models have general reasoning ability, they may generate incorrect statistical interpretations, inconsistent workflows, or hallucinated analysis steps when working with real datasets. Since this project aims to build an autonomous data analyst agent, grounding the system in verified EDA guidelines ensures analytical correctness and methodological consistency.
+
+# Knowledge Base Curation
+A curated knowledge base was created consisting of structured EDA guidelines including missing value handling, outlier detection, correlation analysis, visualization selection, and a standardized EDA workflow. Instead of relying solely on the pre-trained knowledge of the language model, the agent retrieves relevant analytical guidance from this knowledge base during runtime. This allows the system to follow correct data analysis procedures and produce reliable insights.
+
+# Metadata Tags
+To improve retrieval accuracy and ensure precise grounding, metadata tags were attached to every chunk of the knowledge base during ingestion. The following metadata fields were used:
+
+- **`doc_type`**: identifies the type of document (e.g., `eda_guideline`), allowing the system to distinguish between analytical rules and other content.
+- **`topic`**: specifies the analytical concept covered in the chunk such as `missing_values`, `correlation`, `visualization`, `workflow`, or `eda_general`. This enables topic-specific retrieval and filtering.
+- **`source`**: indicates that the content originates from the custom `eda_handbook`, ensuring traceability of retrieved information.
+
+# Retrieval Precision
+These metadata tags improve retrieval precision by enabling filtered searches. For example, when a query related to correlation analysis is issued, the system can restrict retrieval to chunks where the topic tag equals "correlation." This ensures that only the most relevant analytical guidance is returned. The metadata filtering capability was demonstrated in the retrieval test where correlation-related results were retrieved using a topic-based filter.
+
+By combining semantic embeddings with structured metadata, the RAG pipeline provides domain grounding that enhances the reliability, interpretability, and consistency of the autonomous data analysis agent. This approach ensures that the agent behaves like a structured data analyst rather than a generic conversational model, producing accurate and context-aware analytical outputs aligned with real-world data science practices.

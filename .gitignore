@@ -1,1 +1,4 @@
 venv/
+grounding_justification.md
+outputs/retrieval_test.md
+chroma_store/
