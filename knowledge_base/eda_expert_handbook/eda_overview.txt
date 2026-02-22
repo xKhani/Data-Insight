@@ -1,0 +1,21 @@
+Exploratory Data Analysis (EDA) is a critical process in the data analysis pipeline used to understand the structure, quality, and characteristics of a dataset before applying advanced modeling or drawing conclusions. The purpose of EDA is to summarize main characteristics of the data, detect patterns, identify anomalies, test assumptions, and check relationships between variables.
+
+EDA allows analysts to gain insights into distributions, central tendencies, variability, and relationships among variables. It ensures that subsequent analysis or machine learning models are built on reliable and well-understood data.
+
+A standard EDA process includes:
+
+Understanding dataset structure (rows, columns, datatypes)
+
+Detecting missing values and inconsistencies
+
+Identifying outliers and anomalies
+
+Studying distributions of variables
+
+Examining correlations and relationships
+
+Visualizing patterns using charts and graphs
+
+Generating preliminary insights
+
+EDA is essential because incorrect or unclean data can lead to misleading conclusions. A systematic EDA approach ensures reliability, transparency, and validity in analytical reporting.

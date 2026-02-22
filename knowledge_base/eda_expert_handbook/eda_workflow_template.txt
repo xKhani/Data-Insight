@@ -1,0 +1,28 @@
+A structured Exploratory Data Analysis workflow ensures consistency and reliability in analytical tasks. The recommended step-by-step workflow is as follows:
+
+Step 1: Dataset Overview
+Examine dataset dimensions including number of rows and columns. Identify column names and data types. Understand whether variables are numerical, categorical, or datetime.
+
+Step 2: Data Quality Assessment
+Check for missing values across all columns. Identify duplicate records. Verify data consistency and detect invalid entries.
+
+Step 3: Summary Statistics
+Generate descriptive statistics such as mean, median, standard deviation, minimum, and maximum values. These metrics provide initial insight into the distribution of numerical features.
+
+Step 4: Missing Value Treatment
+Determine whether missing values should be removed or imputed. Common strategies include mean, median, or mode imputation depending on data type and distribution.
+
+Step 5: Distribution Analysis
+Analyze distribution of numerical variables using histograms or density plots. Detect skewness, multimodality, or unusual spread.
+
+Step 6: Outlier Detection
+Identify extreme values using statistical techniques such as Interquartile Range (IQR) or Z-score method. Evaluate whether outliers represent genuine variation or data errors.
+
+Step 7: Correlation Analysis
+Compute correlation between numerical variables to detect relationships. Strong correlations may indicate predictive relationships or redundancy.
+
+Step 8: Visualization
+Use appropriate visualizations such as bar charts, histograms, boxplots, scatter plots, and heatmaps to communicate patterns effectively.
+
+Step 9: Insight Generation
+Summarize findings, highlight key relationships, anomalies, and trends. Provide actionable insights based on observed patterns.

@@ -1,0 +1,21 @@
+Data visualization is essential for understanding patterns and communicating insights during exploratory data analysis. Choosing the correct visualization improves interpretability and analytical clarity.
+
+Histogram:
+Used to analyze distribution of a numerical variable. Helps identify skewness and spread.
+
+Boxplot:
+Useful for detecting outliers and understanding quartile distribution.
+
+Bar Chart:
+Best for comparing categorical variables or discrete counts.
+
+Scatter Plot:
+Used to visualize relationships between two numerical variables and identify trends or clusters.
+
+Heatmap:
+Commonly used to visualize correlation matrices and highlight strong relationships between variables.
+
+Line Chart:
+Effective for time-series analysis and trend visualization over time.
+
+Good visualization practices include labeling axes clearly, adding descriptive titles, and avoiding clutter to ensure insights are easily understood.

@@ -1,0 +1,22 @@
+Handling missing values is a fundamental step in exploratory data analysis. Missing data can occur due to data entry errors, system failures, or incomplete information collection.
+
+Types of missing data include:
+
+Missing Completely at Random (MCAR)
+
+Missing at Random (MAR)
+
+Missing Not at Random (MNAR)
+
+Common strategies for handling missing values include:
+
+Deletion Methods:
+Removing rows or columns with missing values when the proportion is small and does not significantly impact dataset integrity.
+
+Imputation Methods:
+Replacing missing values with statistical estimates such as mean, median, or mode. Median is preferred when data contains outliers or skewed distributions.
+
+Advanced Imputation:
+Using predictive models or interpolation techniques to estimate missing values based on other variables.
+
+The choice of method depends on dataset size, proportion of missing data, and analytical objectives. Improper handling of missing values may introduce bias or reduce analytical accuracy.

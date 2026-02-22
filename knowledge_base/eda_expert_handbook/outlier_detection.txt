@@ -1,0 +1,14 @@
+Outliers are extreme values that differ significantly from other observations in a dataset. Detecting and analyzing outliers is important because they may represent data entry errors, measurement issues, or meaningful rare events.
+
+Common outlier detection methods include:
+
+Interquartile Range (IQR) Method:
+Outliers are defined as values below Q1 − 1.5 × IQR or above Q3 + 1.5 × IQR.
+
+Z-Score Method:
+Standardizes values based on mean and standard deviation. Observations with absolute Z-score greater than 3 are often considered outliers.
+
+Visualization Methods:
+Boxplots and scatter plots help visually identify extreme values.
+
+Outliers should not always be removed. If they represent genuine phenomena, they may provide important insights. Analysts must evaluate context before deciding whether to retain or remove outliers.

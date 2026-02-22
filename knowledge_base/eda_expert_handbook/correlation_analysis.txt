@@ -1,0 +1,22 @@
+Correlation analysis measures the strength and direction of relationships between numerical variables. It helps identify patterns and dependencies that may inform predictive modeling or decision-making.
+
+Pearson Correlation:
+Measures linear relationship between two continuous variables. Values range from −1 to +1.
+
+Interpretation:
++1 indicates perfect positive relationship
+0 indicates no linear relationship
+−1 indicates perfect negative relationship
+
+General strength guidelines:
+0.0–0.3 weak
+0.3–0.7 moderate
+0.7–1.0 strong
+
+Spearman Correlation:
+Used when data is not normally distributed or contains ordinal variables. Measures monotonic relationships.
+
+Important Note:
+Correlation does not imply causation. A strong correlation does not necessarily mean one variable causes changes in another.
+
+Correlation matrices and heatmaps are commonly used to visualize relationships among multiple variables.
