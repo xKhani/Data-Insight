@@ -1,6 +1,59 @@
 ﻿
-FINAL:
- {"name": "search_eda_kb", "arguments": {"query": "missing_values", "top_k": 3}}
+=== FINAL ANSWER (Example 1) ===
+Based on the grounded EDA guidance provided:
 
-FINAL:
- {"name": "create_eda_plan", "arguments": {"dataset_columns": ["age", "salary", "city", "join_date"], "goal": "find patterns and outliers"}}
+Handling missing values is a crucial step in exploratory data analysis (EDA). Missing data can occur due to various reasons such as data entry errors, system failures, or incomplete information collection. There are different types of missing data: Missing Completely at Random (MCAR), Missing at Random (MAR), and Missing Not at Random (MNAR).
+
+Common strategies for handling missing values include:
+1. **Deletion Methods**: Removing rows or columns with missing values when the proportion is small and does not significantly impact dataset integrity.
+2. **Imputation Methods**: Replacing missing values with statistical estimates such as mean, median, or mode. Median is preferred when data contains outliers or skewed distributions.
+3. **Advanced Imputation**: Using predictive models or interpolation techniques to estimate missing values based on other variables.
+
+The choice of method depends on the dataset size, proportion of missing data, and analytical objectives. Improper handling of missing values can introduce bias or reduce analytical accuracy.
+
+For a systematic EDA approach, it is recommended to follow these steps:
+1. **Dataset Overview**: Examine dataset dimensions (rows, columns), identify column names and data types, and understand the nature of variables.
+2. **Data Quality Assessment**: Check for missing values across all columns, identify duplicate records, verify data consistency, and detect invalid entries.
+3. **Summary Statistics**: Generate descriptive statistics to provide initial insight into the distribution of numerical features.
+4. **Missing Value Treatment**: Determine whether missing values should be removed or imputed based on the dataset's characteristics.
+5. **Distribution Analysis**: Analyze the distribution of numerical variables using histograms or density plots to detect skewness, multimodality, or unusual spread.
+
+By following these guidelines and steps, you can effectively handle missing values during EDA and ensure that your subsequent analysis is reliable and accurate.
+
+=== FINAL ANSWER (Example 2) ===
+<response>
+To achieve your goal of finding patterns and outliers in the dataset with columns age, salary, city, and join_date, follow this EDA plan:
+
+1. **Check Dataset Shape, Data Types, and Basic Schema Validation**
+   - Understand the structure and types of data.
+
+2. **Compute Missing Values per Column and Decide Handling Approach**
+   - Identify any missing values and decide how to handle them (e.g., imputation, removal).
+
+3. **Compute Summary Statistics for Numeric Columns**
+   - Get an overview of the central tendency, dispersion, and shape of the numeric columns (age and salary).
+
+4. **Check Distributions (Histograms / Density) for Numeric Columns**
+   - Visualize the distribution of age and salary to understand their shapes.
+
+5. **Detect Outliers (IQR / Boxplots) for Key Numeric Columns**
+   - Identify outliers in age and salary using interquartile range (IQR) or boxplots.
+
+6. **Check Correlations Between Numeric Columns (Correlation Matrix / Heatmap)**
+   - Understand the relationships between age, salary, and any potential correlations.
+
+7. **Visualize Key Relationships (Scatter Plots) Based on Goal**
+   - Create scatter plots to visualize relationships between key pairs of variables.
+
+8. **Summarize Insights and Potential Data Quality Issues**
+   - Summarize your findings and identify any data quality issues that need attention.
+
+**Recommended Plots:**
+- Missing values bar chart
+- Histograms for numeric columns (age, salary)
+- Boxplots for outlier inspection (age, salary)
+- Correlation heatmap
+- Scatter plots for top correlated pairs
+
+By following this plan, you will be able to identify patterns and outliers in your dataset effectively.
+</response>
