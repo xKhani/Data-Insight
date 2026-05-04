@@ -17,7 +17,7 @@ from langchain_core.messages import AIMessage
 
 # 1. Custom Groq Wrapper for DeepEval
 class GroqDeepEvalModel(DeepEvalBaseLLM):
-    def __init__(self, model_name="llama-3.1-8b-instant"):
+    def __init__(self, model_name="llama-3.3-70b-versatile"):
         self.model_name = model_name
         self.chat_model = ChatGroq(model=model_name)
 
@@ -71,8 +71,8 @@ def run_deepeval_ci(dataset_path="test_dataset.json"):
 
     for idx, case in enumerate(target_cases, start=1):
         if idx > 1:
-            print("  Waiting 10 seconds for rate limits...")
-            time.sleep(10)
+            print("  Waiting 45 seconds for rate limits (70B model)...")
+            time.sleep(45)
             
         query = case["query"]
         gt = case.get("ground_truth", {})

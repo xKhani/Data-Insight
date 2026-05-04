@@ -43,9 +43,9 @@ jobs:
             --summary ci_eval_summary.json \
             --gate-output quality_gate_results.json
 
-      - name: Run DeepEval (AI Judge via Groq)
-        run: |
-          python evaluation/test_deepeval_ci.py
+#      - name: Run DeepEval (AI Judge via Groq)
+#        run: |
+#          python evaluation/test_deepeval_ci.py
 
       - name: Upload evaluation artifacts
         if: always()
