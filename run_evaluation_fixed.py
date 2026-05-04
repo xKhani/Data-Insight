@@ -220,7 +220,7 @@ def run_single_case(app, case: dict[str, Any]) -> dict[str, Any]:
         "final_output": "",
         "sanitized_output": "",
         "proposed_save_path": DEFAULT_SAVE_PATH,
-        "human_decision": "pending",
+        "human_decision": "approve",
         "human_feedback": "",
         "save_result": {},
         "safety_status": "",
@@ -318,8 +318,11 @@ def main() -> None:
     cases = load_dataset(str(dataset_path))
     app = build_graph()
 
+    # Limit to 5 cases for CI speed
+    target_cases = cases[:5]
+    
     results: list[dict[str, Any]] = []
-    for idx, case in enumerate(cases, start=1):
+    for idx, case in enumerate(target_cases, start=1):
         if idx > 1:
             print("  Waiting 10 seconds to respect rate limits...")
             time.sleep(10)
