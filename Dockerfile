@@ -15,8 +15,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Install Python dependencies
 COPY requirements.txt .
-# Adding fastapi, uvicorn, and python-multipart explicitly as they are required for the API
-# Increased timeout to 1000s to handle large packages on slow networks
+# Pre-install CPU-only version of Torch to avoid massive NVIDIA GPU dependencies
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+# Install remaining dependencies
 RUN pip install --no-cache-dir --default-timeout=1000 -r requirements.txt fastapi uvicorn python-multipart
 
 # Copy project
