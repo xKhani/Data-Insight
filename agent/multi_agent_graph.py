@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 import sqlite3
 from typing import TypedDict, List, Annotated, Literal, Optional
 
@@ -21,6 +22,7 @@ from langchain_core.messages import (
     ToolMessage,
 )
 from langchain_ollama import ChatOllama
+from langchain_groq import ChatGroq
 
 from agent.tools import inspect_csv, search_eda_kb, create_eda_plan, save_eda_proposal
 from agent.csv_path import CSV_PATH, USER_GOAL, DEFAULT_SAVE_PATH, CHECKPOINT_DB, DEFAULT_THREAD_ID
@@ -190,34 +192,27 @@ def get_last_assistant_text(messages: List[BaseMessage]) -> str:
 
 
 # -----------------------------
-# 3) Specialized LLMs
+# 3) LLM Initialization Helper
 # -----------------------------
-BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
-MODEL_NAME = os.getenv("MODEL_NAME", "qwen2.5-coder:7b")
+def get_model(temperature=0.1):
+    groq_api_key = os.getenv("GROQ_API_KEY")
+    if groq_api_key:
+        return ChatGroq(
+            model="llama-3.1-8b-instant",
+            temperature=temperature,
+            groq_api_key=groq_api_key
+        )
+    else:
+        return ChatOllama(
+            model=os.getenv("MODEL_NAME", "qwen2.5-coder:7b"),
+            base_url=os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434"),
+            temperature=temperature
+        )
 
-csv_llm = ChatOllama(
-    model=MODEL_NAME,
-    base_url=BASE_URL,
-    temperature=0.1,
-).bind_tools([inspect_csv])
-
-grounding_llm = ChatOllama(
-    model=MODEL_NAME,
-    base_url=BASE_URL,
-    temperature=0.1,
-).bind_tools([search_eda_kb])
-
-planning_llm = ChatOllama(
-    model=MODEL_NAME,
-    base_url=BASE_URL,
-    temperature=0.1,
-).bind_tools([create_eda_plan])
-
-coordinator_llm = ChatOllama(
-    model=MODEL_NAME,
-    base_url=BASE_URL,
-    temperature=0.2,
-)
+csv_llm = get_model(0.1).bind_tools([inspect_csv])
+grounding_llm = get_model(0.1).bind_tools([search_eda_kb])
+planning_llm = get_model(0.1).bind_tools([create_eda_plan])
+coordinator_llm = get_model(0.2)
 
 
 # -----------------------------
@@ -277,6 +272,9 @@ def output_sanitizer_node(state: GraphState):
 # 5) Agent Nodes
 # -----------------------------
 def csv_inspector_agent(state: GraphState):
+    if os.getenv("GROQ_API_KEY"):
+        time.sleep(5)
+    print("--- CSV INSPECTOR AGENT ---")
     prompt = f"""
 You are the CSV Inspector Agent.
 Your only responsibility is to inspect the dataset file.
@@ -319,6 +317,9 @@ You MUST call the search_eda_kb tool.
 
 
 def planning_agent(state: GraphState):
+    if os.getenv("GROQ_API_KEY"):
+        time.sleep(5)
+    print("--- PLANNING AGENT ---")
     summary = state.get("dataset_summary", {})
     grounding_context = state.get("grounding_context", "")
 
@@ -346,6 +347,9 @@ You MUST call the create_eda_plan tool.
 
 
 def coordinator_agent(state: GraphState):
+    if os.getenv("GROQ_API_KEY"):
+        time.sleep(5)
+    print("--- COORDINATOR AGENT ---")
     dataset_summary = state.get("dataset_summary", {})
     grounding_context = state.get("grounding_context", "")
     eda_plan = state.get("eda_plan", {})

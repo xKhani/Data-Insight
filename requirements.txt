@@ -11,5 +11,7 @@ fastapi
 uvicorn
 python-multipart
 pandas
+deepeval
+langchain-groq
 
  
