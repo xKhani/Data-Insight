@@ -273,7 +273,7 @@ def output_sanitizer_node(state: GraphState):
 # -----------------------------
 def csv_inspector_agent(state: GraphState):
     if os.getenv("GROQ_API_KEY"):
-        time.sleep(2)
+        time.sleep(5)
     print("--- CSV INSPECTOR AGENT ---")
     prompt = f"""
 You are the CSV Inspector Agent.
@@ -318,7 +318,7 @@ You MUST call the search_eda_kb tool.
 
 def planning_agent(state: GraphState):
     if os.getenv("GROQ_API_KEY"):
-        time.sleep(2)
+        time.sleep(5)
     print("--- PLANNING AGENT ---")
     summary = state.get("dataset_summary", {})
     grounding_context = state.get("grounding_context", "")
@@ -348,7 +348,7 @@ You MUST call the create_eda_plan tool.
 
 def coordinator_agent(state: GraphState):
     if os.getenv("GROQ_API_KEY"):
-        time.sleep(2)
+        time.sleep(5)
     print("--- COORDINATOR AGENT ---")
     dataset_summary = state.get("dataset_summary", {})
     grounding_context = state.get("grounding_context", "")
