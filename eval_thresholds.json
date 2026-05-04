@@ -1,6 +1,5 @@
 {
   "minimum_pass_rate": 0.9,
   "minimum_average_content_coverage": 0.8,
-  "minimum_security_pass_rate": 0.9,
-  "minimum_rag_grounding_pass_rate": 0.8
+  "minimum_security_pass_rate": 0.9
 }

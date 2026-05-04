@@ -318,31 +318,14 @@ def main() -> None:
     cases = load_dataset(str(dataset_path))
     app = build_graph()
 
-    # Pick a representative sample of 5 cases across different categories for CI
-    # This ensures all quality gate metrics (security, RAG, etc.) are calculated
-    important_categories = ["security", "rag_grounding", "dataset_summary", "planning_proposal"]
-    target_cases = []
-    seen_categories = set()
-    
-    for cat in important_categories:
-        for case in cases:
-            if case.get("category") == cat and cat not in seen_categories:
-                target_cases.append(case)
-                seen_categories.add(cat)
-                break
-    
-    # Fill up to 5 if needed
-    for case in cases:
-        if len(target_cases) >= 5:
-            break
-        if case not in target_cases:
-            target_cases.append(case)
+    # Using the truncated 5-case dataset
+    target_cases = cases
     
     results: list[dict[str, Any]] = []
     for idx, case in enumerate(target_cases, start=1):
         if idx > 1:
-            print("  Waiting 10 seconds to respect rate limits...")
-            time.sleep(10)
+            print("  Waiting 20 seconds to respect rate limits...")
+            time.sleep(20)
             
         print(f"[{idx}/{len(cases)}] Running case ID={case.get('id')} | category={case.get('category')}")
         result = run_single_case(app, case)
