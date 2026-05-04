@@ -321,8 +321,8 @@ def main() -> None:
     results: list[dict[str, Any]] = []
     for idx, case in enumerate(cases, start=1):
         if idx > 1:
-            print("  Waiting 5 seconds to respect rate limits...")
-            time.sleep(5)
+            print("  Waiting 10 seconds to respect rate limits...")
+            time.sleep(10)
             
         print(f"[{idx}/{len(cases)}] Running case ID={case.get('id')} | category={case.get('category')}")
         result = run_single_case(app, case)

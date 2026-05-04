@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 import sqlite3
 from typing import TypedDict, List, Annotated, Literal, Optional
 
@@ -271,6 +272,9 @@ def output_sanitizer_node(state: GraphState):
 # 5) Agent Nodes
 # -----------------------------
 def csv_inspector_agent(state: GraphState):
+    if os.getenv("GROQ_API_KEY"):
+        time.sleep(2)
+    print("--- CSV INSPECTOR AGENT ---")
     prompt = f"""
 You are the CSV Inspector Agent.
 Your only responsibility is to inspect the dataset file.
@@ -313,6 +317,9 @@ You MUST call the search_eda_kb tool.
 
 
 def planning_agent(state: GraphState):
+    if os.getenv("GROQ_API_KEY"):
+        time.sleep(2)
+    print("--- PLANNING AGENT ---")
     summary = state.get("dataset_summary", {})
     grounding_context = state.get("grounding_context", "")
 
@@ -340,6 +347,9 @@ You MUST call the create_eda_plan tool.
 
 
 def coordinator_agent(state: GraphState):
+    if os.getenv("GROQ_API_KEY"):
+        time.sleep(2)
+    print("--- COORDINATOR AGENT ---")
     dataset_summary = state.get("dataset_summary", {})
     grounding_context = state.get("grounding_context", "")
     eda_plan = state.get("eda_plan", {})
