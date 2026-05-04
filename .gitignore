@@ -4,4 +4,4 @@ outputs/
 .env
 retrieval_test.md
 chroma_store/
-Iris.csv
+# Iris.csv
