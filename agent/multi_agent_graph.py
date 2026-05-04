@@ -197,7 +197,7 @@ def get_model(temperature=0.1):
     groq_api_key = os.getenv("GROQ_API_KEY")
     if groq_api_key:
         return ChatGroq(
-            model="llama-3.3-70b-versatile",
+            model="llama-3.1-8b-instant",
             temperature=temperature,
             groq_api_key=groq_api_key
         )

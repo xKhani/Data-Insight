@@ -16,7 +16,7 @@ from langchain_core.messages import AIMessage
 
 # 1. Custom Groq Wrapper for DeepEval
 class GroqDeepEvalModel(DeepEvalBaseLLM):
-    def __init__(self, model_name="llama-3.3-70b-versatile"):
+    def __init__(self, model_name="llama-3.1-8b-instant"):
         self.model_name = model_name
         self.chat_model = ChatGroq(model=model_name)
 
