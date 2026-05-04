@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import time
 import uuid
 from datetime import datetime
 from pathlib import Path
@@ -319,6 +320,10 @@ def main() -> None:
 
     results: list[dict[str, Any]] = []
     for idx, case in enumerate(cases, start=1):
+        if idx > 1:
+            print("  Waiting 5 seconds to respect rate limits...")
+            time.sleep(5)
+            
         print(f"[{idx}/{len(cases)}] Running case ID={case.get('id')} | category={case.get('category')}")
         result = run_single_case(app, case)
         results.append(result)

@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      LANGCHAIN_TRACING_V2: "true"
+      LANGCHAIN_TRACING_V2: "false"
       LANGCHAIN_PROJECT: "Data-Insight-CI"
       LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

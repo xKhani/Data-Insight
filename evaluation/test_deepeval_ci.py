@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+import time
 from datetime import datetime
 
 # Ensure the project root is in path for agent imports
@@ -68,7 +69,11 @@ def run_deepeval_ci(dataset_path="test_dataset.json"):
     
     print(f"Starting Groq-powered DeepEval evaluation on {len(target_cases)} cases...")
 
-    for case in target_cases:
+    for idx, case in enumerate(target_cases, start=1):
+        if idx > 1:
+            print("  Waiting 10 seconds for rate limits...")
+            time.sleep(10)
+            
         query = case["query"]
         gt = case.get("ground_truth", {})
         expected_behavior = str(gt.get("expected_behavior", "A grounded EDA response."))
